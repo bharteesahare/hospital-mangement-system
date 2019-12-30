@@ -1,0 +1,8 @@
+<div class="form-group" id="select_disease">
+  <label>Select Doctor</label>
+  <select name="appointments[user_id]" class="form-control">
+    <% @doctors.each do |doctor| %>
+      <option value="#{<%= doctor.id %>}"><%= doctor.name %></option>
+    <% end %>
+  </select>
+</div>

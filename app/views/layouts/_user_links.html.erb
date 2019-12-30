@@ -1,0 +1,7 @@
+<% if current_user.doctor? %>
+	<%= link_to "Add new hospital", new_hosp_path, method: :get %>
+	<%= link_to "Add new disease", new_disease_path, method: :get %>
+<% else %>	
+	<%= link_to "Add new appointment", new_appointment_path, method: :get %>
+<% end%>
+

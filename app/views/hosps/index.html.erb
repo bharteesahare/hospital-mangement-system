@@ -1,0 +1,34 @@
+<h1>Hospital dashboard</h1>
+<%= render "layouts/user_links" %>
+<br>
+<br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>city</th>
+      <th>state</th>
+      <th>image</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hosps.each do |h| %>
+      <tr>
+        <td><%= h.name %></td>
+        <td><%= h.address %></td>
+        <td><%= h.city%></td>
+        <td><%= h.state%></td>
+        <td><%= image_tag h.image.url, style: "width:50px;height:50px;" %></td>
+        <td>
+         <%= link_to "Edit", edit_hosp_path(h) %>
+         <%= link_to 'Show', hosp_path(h) %>
+         <%= link_to "Delete", hosp_path(h), data: { confirm: "Are you sure?" }, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

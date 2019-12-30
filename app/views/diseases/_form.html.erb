@@ -1,0 +1,22 @@
+<%= form_for @disease do |f| %>
+  
+  <div class="form-group">
+    <%= f.label :hosp_id, "Select Hospital" %>
+    <%= f.select(:hosp_id, Hosp.all.map{|r| [r.name, r.id]}, {}, { :class => 'form-control' }) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :user_id, "Select Doctor" %>
+    <%= f.select(:user_id, User.all.map{|u| u.role == "doctor" ? [u.email, u.id] : [] }, {}, { :class => 'form-control' }) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.submit "submit", class: 'btn btn-primary' %>
+  </div>
+<% end %>

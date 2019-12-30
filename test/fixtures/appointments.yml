@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  description: MyText
+  date: 2019-12-27
+  time: 2019-12-27 17:21:44
+  disease: 
+
+two:
+  user: two
+  description: MyText
+  date: 2019-12-27
+  time: 2019-12-27 17:21:44
+  disease: 

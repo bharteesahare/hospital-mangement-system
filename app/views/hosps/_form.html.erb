@@ -1,0 +1,34 @@
+<%= form_for @hosp do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, autofocus: true, class: 'form-control' %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_area :address, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :city %>
+    <%= f.text_field :city, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :state %>
+    <%= f.text_field :state, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :city %>
+    <%= f.text_field :city, class: 'form-control' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %><br>  
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "submit", class: 'btn btn-primary' %>
+  </div>
+<% end %>

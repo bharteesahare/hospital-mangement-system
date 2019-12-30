@@ -1,0 +1,30 @@
+<h1>Disease dashboard</h1>
+<%= render "layouts/user_links" %>
+<br>
+<br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Hospital</th>
+      <th>Doctor</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @diseases.each do |disease| %>
+      <tr>
+        <td><%= disease.name %></td>
+        <td><%= disease.hosp.name %></td>
+         <td><%= disease.user.email %></td>
+        <td>
+         <%= link_to "Edit", edit_disease_path(disease) %>
+         <%= link_to 'Show', disease_path(disease) %>
+         <%= link_to "Delete", disease_path(disease), data: { confirm: "Are you sure?" }, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

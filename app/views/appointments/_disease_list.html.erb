@@ -1,0 +1,8 @@
+<div class="form-group" id="select_disease" onchange="selectDropdown();">
+  <label>Select Disease</label>
+  <select name="appointments[disease_id]" class="form-control">
+    <% @diseases.each do |disease| %>
+      <option value="#{<%= disease.id %>}"><%= disease.name %></option>
+    <% end %>
+  </select>
+</div>

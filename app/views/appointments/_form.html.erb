@@ -1,0 +1,48 @@
+<%= form_for @appointment do |f| %>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  
+  <div class="form-group">
+    <%= f.label :hosp_id, "Select Hospital" %>
+    <%= f.select(:hosp_id, Hosp.all.map{|r| [r.name, r.id]}, {}, { :class => 'form-control', id: "select_hospital", onchange: "selectDropdown();" }) %>
+  </div>
+
+  <%= image_tag "ajax-loader.gif",style: "display:none;text-align: center;",id: "renderDisease_loader", class: "center-block" %>
+  <div id="renderDisease">
+    <div class="form-group">
+      <%= f.label :disease_id, "Select Disease" %>
+      <%= f.select(:disease_id, @diseases.all.map{|r| [r.name, r.id]}, {}, { :class => 'form-control', id: "select_disease", onchange: "selectDropdown();" }) %>
+    </div>
+  </div>
+
+
+  <%= image_tag "ajax-loader.gif",style: "display:none;text-align: center;",id: "renderDoctor_loader", class: "center-block" %>
+  <div id="renderDoctor">
+    <div class="form-group">
+      <%= f.label :user_id, "Select Doctor" %>
+      <%= f.select(:user_id, User.all.map{|u| [u.email, u.id] if u.role == "doctor"}, {}, { :class => 'form-control'}) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :date %>
+    <%= f.date_field :date, autofocus: true, class: 'form-control', min: Date.today  %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :time %>
+    <%= f.time_field :time, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.submit "submit", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  
+</script>

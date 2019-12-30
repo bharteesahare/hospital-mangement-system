@@ -1,0 +1,38 @@
+<h1>Appointment dashboard</h1>
+<%= render "layouts/user_links" %>
+<br>
+<br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Description</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.date %></td>
+        <td><%= appointment.time %></td>
+        <td><%= appointment.description%></td>
+        <td>
+          <% if appointment.status == true %>
+            Accept
+          <% else %>
+            Pending
+          <% end %>
+        </td>
+        <td>
+         <%= link_to "Edit", edit_appointment_path(appointment) %>
+         <%= link_to 'Show', appointment_path(appointment) %>
+         <%= link_to "Delete", appointment_path(appointment), data: { confirm: "Are you sure?" }, method: :delete %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
